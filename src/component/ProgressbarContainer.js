@@ -33,8 +33,8 @@ class ProgressbarContainer extends Component {
             <div className='demo-page'>
                 <h1>Progress Bars Demo</h1>
                 <div className="container">
-                    <ProgressBars bars={this.state.bars} limit={this.state.limit} currentbar={this.state.currentBar}/>
-                    <Controller bars={this.state.bars} buttons={this.state.buttons} currentbar={this.state.currentBar}/>
+                    <ProgressBars bars={this.state.bars} limit={this.state.limit} currentBar={this.state.currentBar}/>
+                    <Controller bars={this.state.bars} buttons={this.state.buttons} currentBar={this.state.currentBar}/>
 
                 </div>
             </div>

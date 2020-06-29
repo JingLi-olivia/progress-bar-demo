@@ -36,9 +36,6 @@ class ProgressBars extends React.Component {
             bars: props.bars,
             currentBar: props.currentBar
         };
-        console.log("*****************************");
-        console.log(props);
-        console.log(this.state);
     }
 
     render() {

@@ -7,7 +7,8 @@ class Controller extends React.Component {
         // Any time props.bars changes, update state.
         this.setState({
             bars:nextProps.bars,
-            buttons:nextProps.buttons
+            buttons:nextProps.buttons,
+            currentBar:nextProps.currentBar
         });
     }
     constructor(props) {
@@ -40,6 +41,8 @@ class Controller extends React.Component {
         this.setState({bars});
     }
     setSelectorState(val) {
+        alert(val);
+        
         this.setState({currentBar: val * 1})
         
     }
