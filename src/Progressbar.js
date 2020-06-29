@@ -60,7 +60,7 @@ class ProgressBarContainer extends React.Component {
 
     render() {
         return (
-            <div class='demo-page'>
+            <div className='demo-page'>
                 <h1>Progress Bars Demo</h1>
 
                 <div className="container">
