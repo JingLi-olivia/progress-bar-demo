@@ -18,12 +18,10 @@ class Controller extends React.Component {
             buttons: props.buttons,
             currentBar: props.currentBar
         };
-        console.log("dgfhghj");
-        console.log(props);
     }
 
     updateprogressbar(val) {
-        var newVal = this.state.bars[this.state.currentBar] + val;
+        var newVal = (this.state.bars[this.state.currentBar] + val)*1;
         var f =0;
         if(newVal >=0){
             if(newVal >this.props.limit){
@@ -34,17 +32,11 @@ class Controller extends React.Component {
         }
         else{
             f=0
-        }
-        
+        } 
         var bars=this.state.bars;
+        var barorder = this.state.currentBar
         bars[this.state.currentBar]=f;
-        this.setState({bars});
-    }
-    setSelectorState(val) {
-        alert(val);
-        
-        this.setState({currentBar: val * 1})
-        
+        this.props.handler(barorder,bars)
     }
 
     render() {
@@ -53,7 +45,7 @@ class Controller extends React.Component {
                 <div className="container">
 
                     <div className="toggle-buttons">
-                        <select value={this.state.currentBar} onChange={e=>this.setSelectorState(e.target.value)}>
+                        <select value={this.state.currentBar} onChange={e=>this.props.handler(e.target.value,this.props.bars)}>
                             {this.props.bars.map((option,index) => (
                                 <option key={index} value={index}>progress bar {index + 1}</option>
                             ))}
