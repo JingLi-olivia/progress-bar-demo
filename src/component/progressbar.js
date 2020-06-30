@@ -3,8 +3,8 @@ import '../css/progress-bar.css';
 
 const Range = (props) => {
     return (
-        <div className={`progressbar-value ${props.percentRange<=100 ? "" : "warning"}`}
-        style={{width: `${props.percentRange<=100 ? props.percentRange : 100}%`}}>
+        <div className={`progressbar-value ${props.percentRange <= 100 ? "" : "warning"}`}
+            style={{ width: `${props.percentRange <= 100 ? props.percentRange : 100}%` }}>
         </div>
     );
 };
@@ -16,7 +16,7 @@ const ProgressBar = (props) => {
     }
     return (
         <div className={className}>
-            <Range percentRange={props.percentRange}/>
+            <Range percentRange={props.percentRange} />
             <span className='progressbar-label'>{Math.round(props.percentRange)}%</span>
         </div>
     );
@@ -26,8 +26,8 @@ class ProgressBars extends React.Component {
     componentWillReceiveProps(nextProps) {
         // Any time props.bars changes, update state.
         this.setState({
-            bars:nextProps.bars,
-            currentBar:nextProps.currentBar,
+            bars: nextProps.bars,
+            currentBar: nextProps.currentBar,
         });
     }
     constructor(props) {
@@ -42,8 +42,8 @@ class ProgressBars extends React.Component {
         return (
             <div className="container">
                 {this.state.bars.map((val, index) => (
-                    <ProgressBar key={index} order={index} currentBar = {this.state.currentBar} percentRange={val}/>
-                    
+                    <ProgressBar key={index} order={index} currentBar={this.state.currentBar} percentRange={val} />
+
                 ))}
             </div>
 
