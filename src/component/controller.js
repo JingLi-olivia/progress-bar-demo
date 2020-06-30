@@ -20,7 +20,7 @@ class Controller extends React.Component {
         };
     }
 
-    updateprogressbar(val) {
+    handlebuttonOnClick(val) {
         var newVal = (this.state.bars[this.state.currentBar] + val)*1;
         var f =0;
         if(newVal >=0){
@@ -36,7 +36,12 @@ class Controller extends React.Component {
         var bars=this.state.bars;
         var barorder = this.state.currentBar
         bars[this.state.currentBar]=f;
-        this.props.handler(barorder,bars)
+        this.props.onChange(barorder,bars)
+    }
+
+    handleDropdownchange(val) {
+        var bars=this.state.bars;
+        this.props.onChange(val,bars)
     }
 
     render() {
@@ -45,13 +50,13 @@ class Controller extends React.Component {
                 <div className="container">
 
                     <div className="toggle-buttons">
-                        <select value={this.state.currentBar} onChange={e=>this.props.handler(e.target.value,this.props.bars)}>
+                        <select value={this.state.currentBar} onChange={e=>this.handleDropdownchange(e.target.value,this.props.bars)}>
                             {this.props.bars.map((option,index) => (
                                 <option key={index} value={index}>progress bar {index + 1}</option>
                             ))}
                         </select>
                         {this.props.buttons.map((val, index) => (
-                            <button key={index} onClick={() => this.updateprogressbar(val)}>{val}
+                            <button key={index} onClick={() => this.handlebuttonOnClick(val)}>{val}
                             </button>
                         ))}
                     </div>

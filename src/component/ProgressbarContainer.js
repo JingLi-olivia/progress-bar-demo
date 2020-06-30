@@ -8,7 +8,7 @@ class ProgressbarContainer extends Component {
         super(props)
     
         // Bind the this context to the handler function
-        this.handler = this.handler.bind(this);
+        this.handleProgressbarOnChange = this.handleProgressbarOnChange.bind(this);
 
     }
     state = {
@@ -36,7 +36,7 @@ class ProgressbarContainer extends Component {
         }
 
 
-    handler(currentbar,bars) {
+    handleProgressbarOnChange(currentbar,bars) {
         this.setState(
             {
             currentBar: currentbar * 1,
@@ -50,7 +50,7 @@ class ProgressbarContainer extends Component {
                 <h1>Progress Bars Demo</h1>
                 <div className="container">
                     <ProgressBars bars={this.state.bars}  currentBar={this.state.currentBar}/>
-                    <Controller bars={this.state.bars} limit={this.state.limit} buttons={this.state.buttons} currentBar={this.state.currentBar} handler = {this.handler} />
+                    <Controller bars={this.state.bars} limit={this.state.limit} buttons={this.state.buttons} currentBar={this.state.currentBar} onChange = {this.handleProgressbarOnChange} />
 
                 </div>
             </div>
