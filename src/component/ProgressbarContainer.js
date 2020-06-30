@@ -21,7 +21,6 @@ class ProgressbarContainer extends Component {
             fetch('http://pb-api.herokuapp.com/bars')
             .then(res => res.json())
             .then((data) => {
-            console.log('test test')
             this.setState(
                 {
                     buttons: data.buttons,
